@@ -21,3 +21,20 @@ WHERE emp_no IN (
     FROM dept_manager
     WHERE to_date = '9999-01-01')
     AND gender = 'F';
+
+
+SELECT MAX(s.salary)
+FROM salaries s;
+
+SELECT *
+FROM salaries s
+ORDER BY salary DESC
+LIMIT 10;
+
+SELECT *
+FROM employees e
+WHERE  e.emp_no =
+(SELECT s.emp_no
+FROM salaries s
+ORDER BY salary DESC
+LIMIT 1);
